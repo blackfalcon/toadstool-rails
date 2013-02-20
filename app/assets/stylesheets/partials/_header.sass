@@ -1,0 +1,91 @@
+.main-header
+  background: $white
+  border-bottom: 1px dotted $grayLight
+  height: 80px
+  padding-top: 30px
+  .menu-toggle
+    +link-colors($gray, $gray)
+    display: none
+    +respond-to('handheld')
+      color: $gray
+      display: block
+      font-size: 28px
+      height: 34px
+      line-height: 28px
+      overflow: hidden
+      padding: 5px 10px
+      position: absolute
+      right: 20px
+      top: 0px
+      z-index: 10
+  .logo
+    +inline-block
+    overflow: hidden
+    +respond-to('tablet')
+      width: 35px
+      img
+        width: 360px
+      &:hover:before
+        display: none
+    &:hover
+      cursor: pointer
+      &:before
+        @extend %active-indicator
+        font-size: 32px
+        left: 10px
+        text-indent: 0
+        top: 11px
+        width: 24px
+    .logo-link
+      display: block
+      +respond-to('tablet')
+        width: 35px
+    img
+      max-width: none
+      width: 360px
+  nav
+    font-size: 14px
+    line-height: 20px
+    padding-top: 13px
+    position: absolute
+    right: $body-margin
+    text-transform: uppercase
+    top: 0
+    +respond-to('handheld')
+      background: $white
+      display: none
+      height: auto
+      right: 10px
+      text-align: right
+      top: 50px
+      z-index: 100
+    a
+      +border-image( image-url('transparent-dots.png') 7 round)
+      +inline-block
+      +link-colors($gray, $gray)
+      border-width: 0 0 5px 0
+      margin: 0 10px
+      padding: 0
+      text-align: center
+      // nav link widths need to end in 5 to prevent border image from getting cut off
+      &.work
+        width: 45px
+      &.company
+        width: 65px
+      &.contact
+        width: 65px
+      &:hover
+        +border-image( image-url('red-dots.png') 7 round)
+        border-width: 0 0 5px 0
+        color: $red
+        text-decoration: none
+      &:active, &.active
+        color: $red
+      +respond-to('handheld')
+        display: block
+        line-height: 40px
+        padding: 0 20px
+        text-align: right
+        +border-image(none)
+        &:hover, &:active, &.active
+          +border-image(none)

@@ -1,0 +1,14 @@
+%header.toadstool_header
+  %h1 form
+
+%section#primary_buttons
+  - text = 'Use defualt semantic HTML to create the following buttons.'
+  = render :partial => 'admin/styleguide/subheader', :locals => { :header => 'Primary Buttons', :text => text }
+
+  = html_example 'forms/ui_patterns/_primary_buttons'
+
+  = sass_example '_buttons'
+  = scss_example 'buttons/_mixins'
+  = scss_example 'buttons/_extends'
+
+%footer.toadstool_footer

@@ -1,0 +1,47 @@
+!!!
+%html
+  %head
+    %meta{:charset => "utf-8"}
+
+    %meta{ :name => "viewport", :content => "width=device-width, initial-scale=1.0, minimum-scale=0.5 maximum-scale=1.0"}
+
+    = stylesheet_link_tag :new_site
+    = stylesheet_link_tag :styleguide
+    = javascript_include_tag :styleguide
+
+  %body{:onload => 'prettyPrint()'}
+
+    %section.styleguide_main_content
+      %header.toadstool_main_header
+        %h1 website.com
+        %button.nav_toggle
+          %span
+
+      %nav.toadstool_nav.mobi_hidden
+        %ol
+          %li= link_to_unless_current 'Typography', admin_styleguide_typography_path
+          %li= link_to_unless_current 'Grids', admin_styleguide_grids_path
+          %li= link_to_unless_current 'Color palettes', admin_styleguide_color_palettes_path
+          %li= link_to_unless_current 'Forms', admin_styleguide_forms_path
+          %li= link_to_unless_current 'Modules', admin_styleguide_modules_path
+          %li= link_to_unless_current 'UI Patterns', admin_styleguide_patterns_path
+
+      %article.styleguide_article
+        = yield
+
+      %footer.toadstool_main_footer
+        &copy; 2012 -
+        %script
+          var currentDate = new Date()
+          var year = currentDate.getFullYear()
+          document.write(year)
+
+        %a{:href => "https://github.com/Anotheruiguy/toadstool"} Fork Toadstool
+        on Github.
+        It is available for use and modification under the
+        %a{ :href => "https://github.com/Anotheruiguy/toadstool/blob/master/doc-src/mit_license.md"} MIT license
+
+    .emBox
+      %span.screen-width 0
+      /
+      %span.screen-width-px 0

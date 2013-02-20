@@ -1,0 +1,20 @@
+#!/bin/bash
+
+set -e
+
+if [ ! -e .rvmrc ]; then
+  cp .rvmrc.example .rvmrc
+  echo Creating rvmrc and launching vim so you can edit it
+  echo Press any key to continue...
+  read
+  vim .rvmrc
+  rvm rvmrc trust
+  echo
+  echo You need to load your rvmrc and continue setup by running:
+  echo "cd && cd - && script/setup"
+  exit 1
+fi
+
+gem install bundler
+bundle install
+

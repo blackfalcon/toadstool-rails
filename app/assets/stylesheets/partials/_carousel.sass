@@ -1,0 +1,253 @@
+#main-carousel
+  margin: 0 0 20px 0
+  max-height: 500px
+  max-width: 1024px
+  position: relative
+  -webkit-transform: translate3d(0,0,0)
+  +respond-to('tablet')
+    max-height: none
+
+.carousel
+  position: relative
+
+.carousel-control
+  background: none
+  border: none
+  color: $grayLight
+  font-family: 'Basicdots'
+  font-size: 28px
+  font-weight: normal
+  height: 28px
+  line-height: 32px
+  text-align: center
+  top: 0
+  width: 28px
+  height: 100%
+  z-index: 20
+  +opacity(1)
+  +respond-to('tablet')
+    display: none
+  span
+    +border-radius(32px)
+    position: absolute
+    top: 50%
+    width: 28px
+    height: 28px
+    left: 0
+    display: block
+  &:hover span
+    background: $red
+  &.left
+    left: -32px
+    span
+      text-align: left
+      padding-left: 8px
+  &.right
+    right: -32px
+    span
+      text-align: right
+      padding-right: 4px
+
+.caption
+  @extend .span4
+  color: $black
+  line-height: 1.2em
+  padding: 0
+  position: absolute
+  top: 0
+  +respond-to('tablet')
+    p
+      +columns($small-width-max/2 2)
+  +respond-to('desktop')
+    top: 20px
+  h4
+    font-size: 32px
+    line-height: 1.2em
+    margin: 0 0 10px 0
+    color: $gray
+    font-family: 'DIN-Light'
+    text-transform: uppercase
+    width: 160%
+    +respond-to('tablet')
+      width: auto
+  p
+    font-size: 14px
+    line-height: 18px
+    color: $gray
+
+
+// --------------
+// Animation
+// --------------
+
+$parallax-offset: 133%
+$flair-offset: 80%
+$bounce-ease-function: cubic-bezier(0.535, -0.200, 0.265, 1.160)
+$slide-ease-function: cubic-bezier(0.590, 0.575, 0.650, 1.005)
+#main-carousel.slide
+  .caption
+    +single-transition(all, 1.2s, $bounce-ease-function)
+    left: $parallax-offset
+  .flair
+    +rotate(90deg)
+    +single-transition(all, 1.2s, $bounce-ease-function)
+    left: $parallax-offset*6
+  .item.prev.right, .item.active.right
+    +single-transition(all, 1.2s, $slide-ease-function)
+  .item.next.left, .item.active.left
+    +single-transition(all, 1.2s, $slide-ease-function)
+    &.text_right
+      .caption
+        left: 66%
+    .caption
+      +single-transition(all, 1.2s, $bounce-ease-function)
+      left: 0
+    .flair
+      +rotate(0deg)
+      left: $flair-offset
+  .item.active
+    &.text_right
+      .caption
+        left: 66%
+    .caption
+      left: 0
+    .flair
+      +rotate(0deg)
+      left: $flair-offset
+  .item.active.left, .item.active.left.text_right
+    .caption
+      left: -$parallax-offset
+    .flair
+      +rotate(-90deg)
+      left: -$parallax-offset
+  .item.active.right
+    .caption
+      left: $parallax-offset
+    .flair
+      left: $parallax-offset*6
+  .item.prev
+    .caption
+      left: -$parallax-offset
+    .flair
+      left: -$parallax-offset*6
+  .item.prev.right
+    &.text_right .caption
+      left: 66%
+    .caption
+      left: 0
+    .flair
+      +rotate(0deg)
+      left: $flair-offset
+
+.carousel.fade-transition
+  .carousel-inner
+    overflow: visible
+  .item
+    +opacity(0)
+    &.active.left, &.active.right
+      +opacity(0)
+    &.active, &.next.left, &.prev.right
+      +opacity(1)
+
+.carousel.no-transition, #main-carousel.carousel.no-transition
+  .item
+    +single-transition(all, 0s, linear)
+    &.text_right
+      .caption
+        left: 66%
+  .paging-dot a
+    +single-transition(all, 0s, linear)
+
+
+#main-carousel
+  @extend .row-fluid
+  margin-bottom: 20px
+  .item
+    max-height: 500px
+    -webkit-transform: translate3d(0,0,0)
+    +respond-to('tablet')
+      +opacity(1)
+      display: block
+      margin-top: 10px
+      margin-bottom: 42px
+      position: relative
+      max-height: none
+    &.text_right .caption
+      padding: 0 20px 0 0
+      +respond-to('tablet')
+        padding: 0px
+  .caption
+    z-index: 15
+    padding: 0 0 0 20px
+    +respond-to('tablet')
+      margin: 0
+      padding: 0px
+      position: static
+      width: 100%
+  .flair
+    position: absolute
+    top: 10px
+    width: 200px
+    z-index: 10
+
+
+.item
+  background-position: center center
+  background-repeat: no-repeat
+  position: relative
+  width: 100%
+  &.swipeCurrent
+    @extend .active
+    top: 0
+    display: block
+  &.swipeNext
+    @extend .next, .left
+    display: block
+    top: 0
+    left: 100%
+  &.swipePrev
+    @extend .prev, .right
+    display: block
+    top: 0
+    left: -100%
+  a
+    display: block
+  &.text_right .slide_background
+    +respond-to('tablet')
+      left: 20%
+  .slide_background
+    max-width: none
+    min-height: 385px
+    position: relative
+    width: 100%
+    z-index: 5
+    +respond-to('tablet')
+      min-height: 0
+      position: relative
+      right: 20%
+
+.paging-dots
+  @extend %list-reset
+  text-align: center
+  margin-top: 25px
+  +respond-to('tablet')
+    display: none
+
+.paging-dot
+  display: inline-block
+  margin: 0 5px
+  overflow: hidden
+  $size: 10px
+  +border-radius($size)
+
+  &.active
+    display: inline-block
+    position: static
+    a
+      background-color: darken($red, 20%)
+  a
+    +single-transition(background-color, 1.2s, $bounce-ease-function)
+    background-color: $grayLight
+    display: block
+    height: $size
+    width: $size

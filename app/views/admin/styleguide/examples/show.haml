@@ -1,0 +1,10 @@
+%div.toadstool_header.toadstool_subheader
+  :markdown
+    #{@example.markdown}
+
+%article.element_example
+  = render :partial => @example.partial, :locals => @data
+
+= example_file @example.full_path
+- @example.sass_path.each do |path|
+  = sass_full_path_example path

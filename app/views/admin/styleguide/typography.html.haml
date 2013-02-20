@@ -1,0 +1,56 @@
+%header.toadstool_header
+  %h1 typography
+
+%section#generalTypography
+  - text = "Toadstool's typograhy is mainly maintained via the <code>_config.scss</code> file. For more detailed information, see <a href='http://goo.gl/Hl8po' target='_blank'>Stipe's typography documentation.</a>"
+  = render :partial => 'admin/styleguide/subheader', :locals => { :header => 'general typography', :text => text }
+
+  = html_example 'typography/_body_copy'
+  = sass_example '_typography'
+  = sass_example '_config'
+
+
+%section#headings
+  - text = "In Toadstool, presentation is 100% separated from content and markup, this goes for typography too. Heading styles are not beholden to heading tags, but applied via slient classes to the appropriate semantic markup or class as needed."
+  = render :partial => 'admin/styleguide/subheader', :locals => {  :header => 'headings', :text => text }
+
+  = html_example 'typography/_headings'
+  = sass_example '_typography'
+  = sass_example '_config'
+
+%section#heading_groups
+  - text = "Special typography charasteristics based on placement in heading groups."
+  = render :partial => 'admin/styleguide/subheader', :locals => {  :header => 'heading groups', :text => text }
+
+  = html_example 'typography/ui_patterns/_hgroups'
+  = sass_example '_typography'
+
+%section#header_copy_link
+  - text = "UI pattern grouping to include a header, body copy and a link."
+  = render :partial => 'admin/styleguide/subheader', :locals => {  :header => 'header, copy and link', :text => text }
+
+  = html_example 'typography/ui_patterns/_header_copy_link'
+  = sass_example '_typography'
+
+%section#section_title
+  - text = "UI pattern for section titles"
+  = render :partial => 'admin/styleguide/subheader', :locals => {  :header => 'section title', :text => text }
+
+  = html_example 'typography/ui_patterns/_section_title'
+  = sass_example '_typography'
+
+%section#ico-fonts
+  - header = "Substantial ico-font library"
+  - text = ""
+  = render :partial => 'admin/styleguide/subheader', :locals => {  :header => header, :text => text }
+
+  .markdown-content
+    :markdown
+      #{File.new(File.join(Rails.root,'app/views/admin/styleguide/typography/ico-fonts.md')).read}
+
+  = html_example 'typography/ui_patterns/_ico_fonts'
+  = scss_example 'typography/_ico-fonts'
+  = scss_example 'typography/_extends'
+
+%footer.toadstool_footer
+

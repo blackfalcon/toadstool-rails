@@ -1,0 +1,19 @@
+// How-to: place ico-font AFTER block element
+// ---------------------------------------------------
+// .block {
+//   @extend [ICON CLASS NAME];
+// }
+
+// To add a new icon fonts to the view, simply add the name of the new font to the `$icons` list
+// ---------------------------------------------------
+$icons: (icon-01 '\e000') (icon-02 '\e001');
+
+
+// DO NOT EDIT
+// ---------------------------------------------------
+@each $icon in $icons {              // <-- create listing of PUA pseudo selectors
+  .icon-#{nth($icon, 1)}:after {
+    content: nth($icon, 2);
+    @extend %ico-font-base;
+  }
+}

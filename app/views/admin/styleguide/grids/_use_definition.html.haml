@@ -1,0 +1,29 @@
+%section#grid_use_definition
+  %header.toadstool_subheader
+    %h2 grid use definition
+    %article
+      %p To use grids in Toadstool, Stipe comes with some awesome Mixins for easy creation of custom grids as well as commonly used silent classes.
+      %p
+        Stipe's grid system is based on the original 960.gs solution; there are concepts like columns, gutters and nesting. For the most part when framing a UI, simply extend already pre-defined
+        %a{:href => "http://goo.gl/W1QlA", :target => "_blank"} silent classes
+        like
+        = succeed "." do
+          %code @extend %grid_4
+        These pre-formatted silent classes already come with additional support for mobile devices.
+      %p
+        If you require more customization of a given grid, use
+        = succeed "," do
+          %code @include grid($col_count)
+        replacing
+        %code $col_count
+        with the number of colums you need.
+      %p
+        For nested grids, Stipe supports 'alpha' and 'omega' concepts. For added spice, if you want to remove both margins, 'alphaomega' works too. Example
+        = succeed "." do
+          %code @include grid(5, alpha)
+      %p
+        Since Stipe's grid is pure math, you can pass in floating point numbers as well. Example, using
+        %code @include grid(12, alphaomega)
+        will remove the margin on the outside of the grid, but will not be 100% across. Increasing the value fractionally (
+        %code> @include grid(12.25, alphaomega)
+        ) will address the missing space.

@@ -1,0 +1,11 @@
+// Use this Sass file to create custom typography silent placeholder extends per your project
+// -----------------------------------------------------------------------
+
+%ico-font-base {
+  font-family: $icon_font_alpha;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+}
