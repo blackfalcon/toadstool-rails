@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-SavageLovecast::Application.load_tasks
+Toadstool::Application.load_tasks
