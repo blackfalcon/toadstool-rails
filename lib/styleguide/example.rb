@@ -14,7 +14,7 @@ module Styleguide
     end
 
     def friendly_name
-      file_name.to_s.match(/_([a-zA-Z0-9_-]*)\..*/)[1]
+      file_name.to_s.match(/([[:alnum:]_-]+)/)[0].to_s
     end
 
     def partial
