@@ -56,11 +56,7 @@ Good luck ;)
 //= stub styleguide_only
 ```
 
-###Need to fix
-1. In rails, all files need to be `.css.sass` or `.css.scss`
-1. app/helpers/styleguide_helper.rb update reference to be `.css.sass` or `.css.scss`
-1. need to get all the icon automated Sass building into the Stipe gem
-1. updated the ico-font support to be more generic for install on the tournament-app 
+ 
 
 
 
