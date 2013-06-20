@@ -1,5 +1,8 @@
 #Step-by-step process for adding Toadstool to a project
 
+Sorry for the mess here. This process is 100% manual and not awesome, but here it is. The process is to clone this project along side the project you want to install Toadstool into. Then follow the steps to move code from this repo to your rails project. 
+Good luck ;)
+
 ###Javascripts
 1. mv ../toadstool-rails/app/assets/javascripts/toadstool-nav.js app/assets/javascripts/
 1. mv ../toadstool-rails/app/assets/javascripts/toadstool.js.coffee app/assets/javascripts/
